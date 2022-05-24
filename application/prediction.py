@@ -2,7 +2,11 @@ from keras.models import load_model
 from keras.preprocessing import  image as im
 import numpy as np
 
-Classes = ["background","cordana","healthy","pestalotiopsis","sigatoka"]
+Classes = [ "no leaf detected",
+            "Cordana Leaf Disease Spotted",
+            "This Banana is Healthy",
+            "Pestalotiopsis Leaf Disease Spotted",
+            "Sigatoka Leaf Disease Spotted"]
 
 
 def prepare(img):
