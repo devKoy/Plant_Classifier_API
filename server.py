@@ -1,7 +1,6 @@
 
 from distutils.log import debug
 from fastapi import FastAPI, File, UploadFile
-from nbformat import read
 import uvicorn
 from application import prediction as p, read_files as r
 import os
