@@ -4,7 +4,7 @@ from fastapi import FastAPI, File, UploadFile
 from nbformat import read
 import uvicorn
 from application import prediction as p, read_files as r
-
+import os
 
 app = FastAPI()
 @app.get('/index')
@@ -20,4 +20,4 @@ async def predict_api(file: UploadFile = File(...)):
 	
 	return pred
 if __name__ == "__main__":
-	uvicorn.run(app, port = 8080, debug = True)
+	uvicorn.run(app, host='0.0.0.0', port=os.environ.get('PORT', '5000'))
