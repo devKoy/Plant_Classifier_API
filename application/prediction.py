@@ -26,4 +26,4 @@ def predict(img):
     modelizer()
     pred = model.predict(img)
     conf = int(pred[0][np.argmax(pred)] * 100)
-    return Classes[np.argmax(pred)] + " with " + str(conf) + "% accuracy"
+    return Classes[np.argmax(pred)]
