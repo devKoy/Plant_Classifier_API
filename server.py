@@ -31,4 +31,4 @@ async def predict_api(file : UploadFile = None):
 	return pred
 
 if __name__ == "__main__":
-	uvicorn.run(app, host='0.0.0.0', port=os.environ.get('PORT', '5000'), debug=True)
+	uvicorn.run(app, host='0.0.0.0', port=os.environ.get('PORT', '5000'))
