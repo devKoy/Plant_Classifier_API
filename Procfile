@@ -1,1 +1,1 @@
-web: uvicorn server:app --host=0.0.0.0 --port=${PORT:-5000}
+web: gunicorn server:app --workers 2 -k uvicorn.workers.UvicornWorker --preload --timeout 10 --max-requests 3
