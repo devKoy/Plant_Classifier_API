@@ -39,6 +39,8 @@ def predict(path):
        result["diseases"][0] = Classes[maxPredict]
     else:
        res = prediction[0].argsort()[-3:][::-1]
+       counter = 0;
        for i in res:
-          result["diseases"][i] = res[i]
+          result["diseases"][counter] = Classes[i]
+	  counter ++;
     return str(result)
