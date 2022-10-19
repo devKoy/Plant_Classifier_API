@@ -20,10 +20,25 @@ def prepare(img):
 def modelizer():
 	global model
 	model = load_model('plantsv2.h5')
-
-def predict(img):
-    img = prepare(img)
+def predict(path):
+    result = {
+       "accuracy" : 0,
+       "diseases" :
+       {
+         0 : "!!",
+         1 : "",
+         2 : "",
+       }
+    }
+    img = prepare(path)
     modelizer()
-    pred = model.predict(img)
-    conf = int(pred[0][np.argmax(pred)] * 100)
-    return Classes[np.argmax(pred)]
+    prediction = model.predict(img)
+    maxPredict = np.argmax(prediction)
+    result["accuracy"] = round(prediction [0][maxPredict] * 100)   
+    if(prediction[0][maxPredict] * 100 > 70 ):
+       result["diseases"][0] = Classes[maxPredict]
+    else:
+       res = prediction[0].argsort()[-3:][::-1]
+       for i in res:
+          result["diseases"][i] = Classes[res[i]]
+    return str(result)
