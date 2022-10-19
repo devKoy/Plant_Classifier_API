@@ -2,7 +2,7 @@ from keras.models import load_model
 from keras.preprocessing import  image as im
 import numpy as np
 from efficientnet.tfkeras import EfficientNetB4
-
+import json
 Classes = [ "no leaf detected",
             "Banana",
             "Corn",
@@ -43,4 +43,4 @@ def predict(path):
        for i in res:
           result["diseases"][counter] = Classes[i]
           counter += 1
-    return str(result)
+    return json.dumps(result)
