@@ -42,5 +42,5 @@ def predict(path):
        counter = 0;
        for i in res:
           result["diseases"][counter] = Classes[i]
-          counter++;
+          counter += 1
     return str(result)
