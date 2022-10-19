@@ -26,8 +26,6 @@ async def predict_api(file : UploadFile = None):
 		return "Image must be a [jpg, jpeg, png] format"
 	image = r.read_files(await file.read())
 	pred = p.predict(image)
-	with open('readme.txt', 'w') as f:
-		f.write(pred)
 	return pred
 
 if __name__ == "__main__":
