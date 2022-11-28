@@ -6,10 +6,16 @@ import os
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
-	
+origins = [
+	"https://www.greenlyai.space/",
+	"https://greenlyai.space/",
+	"https://www.greenlyai.space",
+	"https://greenlyai.space"
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins = origins,
     allow_methods=["POST"],
     allow_headers=["*"],
 )
