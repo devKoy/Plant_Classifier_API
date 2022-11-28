@@ -3,21 +3,20 @@ from fastapi import FastAPI, File, UploadFile, Form
 import uvicorn
 from application import prediction as p, read_files as r
 import os
-from fastapi.middleware.cors import CORSMiddleware
+from starlette.middleware import Middleware
+from starlette.middleware.cors import CORSMiddleware
 
-app = FastAPI()
 origins = [
-	"https://www.greenlyai.space",
-	"https://greenlyai.space"
+   "https://www.greenlyai.space",
+   "https://greenlyai.space"
 ]
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins = origins,
-    allow_credentials=False,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+middleware = [
+    Middleware(CORSMiddleware, allow_origins=origins,  allow_headers=["*"])
+]
+
+app = FastAPI(middleware=middleware)
+
 
 @app.get('/main')
 async def hello():
