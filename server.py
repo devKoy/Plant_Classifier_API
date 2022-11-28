@@ -7,6 +7,7 @@ from starlette.middleware import Middleware
 from starlette.middleware.cors import CORSMiddleware
 
 origins = [
+   "https://testapi.consulting.repl.co",
    "https://www.greenlyai.space",
    "https://greenlyai.space"
 ]
